@@ -21,7 +21,7 @@ fn main() {
 ```
 The rest of the code of an example application.
 
-Code can also be found [here](https://github.com/bevy-logging/test_spiral)
+Code can also be found [here.](https://github.com/bevy-logging/test_spiral)
 ```
 use bevy::{log::LogPlugin, prelude::*};
 use rand::prelude::*;
