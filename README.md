@@ -38,4 +38,4 @@ This book will not talk about debugging tools beyond logging.
 
 Please note this document is not an official document of bevy's
 
-referenced code can be found [here](https://github.com/bevy-logging/test_spiral)
+Referenced code can be found [here](https://github.com/bevy-logging/test_spiral)
