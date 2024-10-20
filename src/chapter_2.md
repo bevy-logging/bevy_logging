@@ -1,9 +1,10 @@
 # Redirceting output to a file
 
-Soon you may notice `stdout` is getting full and scrolling up you lose track of where you are.
-You may be aware that you can move the output to a file using the `>` operator.
+You may already know `stdout` can be redirected to file using the `>` operator.
+When you have lots of logging the screen can get fill quickly so redirecting can help you
+manage all that information
 
-Like below
+An example below.
 
 `Cargo run > output.txt`
 
