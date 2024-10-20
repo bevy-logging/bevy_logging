@@ -10,4 +10,5 @@
 - [Tracing spans](./chapter_6.md)
 - [Tracing Multiple logging files](./chapter_7.md)
 - [Further Info](./chapter_8.md)
+- [Design patterns](./patterns.md)
 - [Contributing](./contributing.md)
