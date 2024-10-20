@@ -35,3 +35,5 @@ The documentation around Tracing is overwhelming for me and talks a lot about as
 
 ### What this book is not
 This book will not talk about debugging tools beyond logging.
+
+Please note this document is not an official document of bevy's
