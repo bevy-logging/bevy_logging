@@ -1,0 +1,37 @@
+# Introduction
+
+### About
+I have recently been making a game using the bevy engine.
+Along the way I have been helped by community with many issues I have encountered both within the 
+broader Rust Community as well as the Bevy community.
+
+
+### Structure
+As I have spent more time working with Rust, I have moved from using println! to using the tracing crate
+for logging.
+My Objectives are
+- Describe the transition from basic methods to more advanced tools.
+- Explain the reasons that prompted this change in practice.
+
+
+
+
+### Motivation
+A common slogan with Rust is "if it compiles it usually works", 
+however I have found this is not as much the case with Bevy.
+
+While Rust's compile-time checks catch many errors, Bevy's ECS can introduce runtime issues:
+
+- Queries breaking due to component changes
+- Systems running in unexpected orders
+
+Advanced logging and tracing help catch these issues earlier and provide more context for debugging. 
+
+I hope to help the reader fix issues with their games quicker and give something back to the community.
+
+The documentation around Tracing is overwhelming for me and talks a lot about async which I have not used.
+
+
+
+### What this book is not
+This book will not talk about debugging tools beyond logging.

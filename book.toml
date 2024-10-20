@@ -1,0 +1,6 @@
+[book]
+authors = ["lyndon mackay"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Logging with Bevy"
