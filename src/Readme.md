@@ -9,7 +9,7 @@ broader Rust Community as well as the Bevy community.
 ### Structure
 As I have spent more time working with Rust, I have moved from using println! to using the tracing crate
 for logging.
-My Objectives are
+My Objectives are to
 - Describe the transition from basic methods to more advanced tools.
 - Explain the reasons that prompted this change in practice.
 
