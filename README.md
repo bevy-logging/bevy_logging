@@ -25,7 +25,7 @@ While Rust's compile-time checks catch many errors, Bevy's ECS can introduce run
 - Queries breaking due to component changes
 - Systems running in an unexpected order
 
-Advanced logging and tracing help catch these issues earlier and provide more context for debugging. 
+Advanced logging and tracing can help catch these issues earlier and provide more context for debugging. 
 
 I hope to help the reader fix issues with their games quicker and give something back to the community.
 
