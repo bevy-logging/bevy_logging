@@ -195,6 +195,17 @@ The output
 2024-10-21T08:12:13.653510Z  INFO some_queries: test_spiral: not actually going to run
 ```
 
+
+If you recall an earlier section of the book say equate targets with modules *for now* 
+
+You can change that using arguments to instruments, this will not be demonstrated however,
+As I have never had a need for it yet.
+
+More about instruments (here.)[https://docs.rs/tracing/latest/tracing/attr.instrument.html]
+
+
+
+
 ### Spans 
 
 I think of spans as tags, I don't have a lot of experience with them so this will be brief and incomplete.
@@ -216,19 +227,23 @@ let span = span!(Level::DEBUG, "start");
 let _guard = span.enter();
 ```
 Spans only apply when the logging level is set at it or above.
-note _guard is there to stop the variable being dropped immediately.
 
-While _guard is valid the span is entered.
+
+Note `_guard` is there to stop the variable being dropped immediately.
+The underscore is to stop unused errors as its drop behaviour is what really makes it work!
+
+While `_guard` is valid(undropped) the span is entered.
 while span is valid the span is created
 
 There is shorthands for all logging levels such as `trace_span!`
 
-You cannot combine the `span.enter` and span creation into one line as entering a span and creating
-are distinct things, A span is only created once while a span can be entered many times.
+You cannot combine the `span(/* snip*/).enter`  into one line as *entering* a span and *creating*
+are distinct things, A span is only *created* once while a span can be *entered* many times.
 
-Entering and exiting spans is ~stuff I don't have much idea about~ beyond the scope this tutorial.
+Entering and exiting spans is ~stuff I don't have much idea about~ beyond the scope this tutorial(mostly async stuff).
+
 Spans *exit* when the variable holding the enter is dropped in this example the `_guard`
-Spans *Close* when the span variable is dropped
+Spans *Close* when the span variable is dropped.
 
 
 we can use square brackets to filter by span 
@@ -419,9 +434,11 @@ tracing_subscriber::fmt()
   .init();
 
  ```
-I find timestamp is spammy with diff files so thats why `without_time` is there.
-I mentioned that `dbg!` had line numbers and file names, `with_file(true)`,`with_line_numbers(true)`.
-Pretty is useful for console, remove if you are redirecting to a txt file
+- I find timestamp is spammy with diff files so thats why `without_time` is there.
+
+- I mentioned that `dbg!` had line numbers and file names, `with_file(true)`,`with_line_numbers(true)`.
+
+- Pretty is useful for console, remove if you are redirecting to a txt file
 
 Now lets run
 
