@@ -23,7 +23,7 @@ however I have found this is not as much the case with Bevy.
 While Rust's compile-time checks catch many errors, Bevy's ECS can introduce runtime issues:
 
 - Queries breaking due to component changes
-- Systems running in an unexpected orders
+- Systems running in an unexpected order
 
 Advanced logging and tracing help catch these issues earlier and provide more context for debugging. 
 
