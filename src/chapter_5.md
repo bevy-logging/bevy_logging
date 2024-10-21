@@ -18,6 +18,8 @@ So far we have learned about logging levels and filtering by module our next goa
 
 ### instrument
 
+instrument adds more context to your functions
+
 ```rust
 
 use bevy::{log::LogPlugin, prelude::*};
@@ -200,9 +202,19 @@ let _guard = span.enter();
 ```
 Spans only apply when the logging level is set at it or above.
 note _guard is there to stop the variable being dropped immediately.
-While _guard is valid the span is applied.
+
+While _guard is valid the span is entered.
+while span is valid the span is created
 
 There is shorthands for all logging levels such as `trace_span!`
+
+You cannot combine the `span.enter` and span creation into one line as entering a span and creating
+are distinct things, A span is only created once while a span can be entered many times.
+
+Entering and exiting spans is ~stuff I don't have much idea about~ beyond the scope this tutorial.
+Spans *exit* when the variable holding the enter is dropped in this example the `_guard`
+Spans *Close* when the span variable is dropped
+
 
 we can use square brackets to filter by span 
 
