@@ -370,7 +370,8 @@ fn main() {
         .add_systems(Startup, spammy::print_trash)
         .add_systems(Update, some_queries.run_if(run_once()))
         .run();
-}```
+}
+```
 
 Lets modify Tracing
 
@@ -477,5 +478,6 @@ Now lets run
     at src/main.rs:96
     in test_spiral::some_queries
 ```
+
 Line numbers and file names. You may be happy to just work from this point.
 Next chapters is basically breaking Tracing up into layers
