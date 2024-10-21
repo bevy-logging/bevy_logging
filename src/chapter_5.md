@@ -201,7 +201,7 @@ If you recall an earlier section of the book say equate targets with modules *fo
 You can change that using arguments to instruments, this will not be demonstrated however,
 As I have never had a need for it yet.
 
-More about instruments (here.)[https://docs.rs/tracing/latest/tracing/attr.instrument.html]
+More about instruments [here](https://docs.rs/tracing/latest/tracing/attr.instrument.html)
 
 
 
