@@ -3,7 +3,7 @@
 The `dbg!` macro introduced in version `1.32` is pretty much a `println!` made for debugging.
 
 An example from the official docs page
-```
+```rust
 let a = 2;
 let b = dbg!(a * 2) + 1;
 //      ^-- prints: [src/main.rs:2:9] a * 2 = 4

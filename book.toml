@@ -4,3 +4,6 @@ language = "en"
 multilingual = false
 src = "src"
 title = "Logging with Bevy"
+
+[rust]
+edition = "2018"

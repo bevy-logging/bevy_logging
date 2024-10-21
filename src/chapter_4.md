@@ -5,7 +5,7 @@ One of Bevy's default plugins is the log plugin.
 Lets configure the plugin then explain as we see what happens
 
 
-```
+```rust
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins.set(LogPlugin {
@@ -22,7 +22,8 @@ fn main() {
 The rest of the code of an example application.
 
 Code can also be found [here.](https://github.com/bevy-logging/test_spiral)
-```
+
+```rust
 use bevy::{log::LogPlugin, prelude::*};
 use rand::prelude::*;
 use tracing::Level;
@@ -158,7 +159,7 @@ Spans will be discussed later.
 To start with lets put a global env filter set all to warn this can give you useful messages such as a uinode without an appopriate parent
 
 
-```
+```rust
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins.set(LogPlugin {
@@ -188,7 +189,7 @@ Ok so lets add in our own startup warning message.
 We can print a warn message using Tracings macro
 
 
-```
+```rust
 fn setup(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
@@ -220,7 +221,7 @@ Great we can put a message there but its not really a warning we can move it to 
 
 We use Tracings `info!` macro
 
-```
+```rust
     info!("Hello Log");
 
 ```
@@ -260,7 +261,7 @@ so I will `test_spiral` there is no module name.
 Env filters are comma seperated so `warn,test_spiral=info` will mean "run warn level for as normal, for module test_spiral info"
 
 
-```
+```rust
 fn main() {
     App::new()
         //Disable the defaults
@@ -293,7 +294,7 @@ Excellent
 
 We are going to make a second module we will keep it in the same file for simplicity but it will work for seperate files
 
-```
+```rust
 use bevy::{log::LogPlugin, prelude::*};
 use rand::prelude::*;
 use tracing::Level;
@@ -382,7 +383,7 @@ mod spammy {
 `?i` just means use debug of that variable to print, otherwise you can use the macros same way as `println!`
 lets first change the log level for our application to be at trace
 
-```
+```rust
 filter: "warn,test_spiral=trace".to_string(),
 ```
 
@@ -418,7 +419,8 @@ Clearly we have a problem with spammy, we could just delete the spammy logs like
 However for the sake of the excercies lets pretend that we sometimes is useful
 
 lets put in a log code so we cannot just change the applications logging levels
-```
+
+```rust
 fn setup(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
@@ -430,7 +432,7 @@ fn setup(
 How do we just hide spammy's messages?
 
 Like so using the path that was printed `test_spiral::spammy`
-```
+```rust
 filter: "warn,test_spiral=trace,test_spiral::spammy=info".to_string(),
 
 ```

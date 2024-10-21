@@ -17,7 +17,8 @@ However you don't need to use async code to benefit from this crate, I expect I 
 So far we have learned about logging levels and filtering by module our next goal is to learn how to add more context to our logs.
 
 ### instrument
-```
+
+```rust
 
 use bevy::{log::LogPlugin, prelude::*};
 use rand::prelude::*;
@@ -114,7 +115,8 @@ mod spammy {
 ```
 
 Of particular note is instrument
-```
+
+```rust
 #[instrument]
     fn some_function(i: u8) {
         if i == 3 {
@@ -146,7 +148,7 @@ If I am a system to query all transforms
 
 `.add_systems(Update, some_queries.run_if(run_once()))`
 
-```
+```rust
 #[instrument]
 fn some_queries(transformers: Query<&Transform>) {
     info!("not actually going to run");
@@ -192,7 +194,7 @@ You can use as many spans as you want.
 Now lets look at the syntax to use a span inside a fuction
 you need code that looks like this
 
-```
+```rust
 let span = span!(Level::DEBUG, "start");
 let _guard = span.enter();
 ```
@@ -208,7 +210,7 @@ we can use square brackets to filter by span
 
 Now for the entire code
 
-```
+```rust
 use bevy::{log::LogPlugin, prelude::*};
 use rand::prelude::*;
 use tracing::{instrument, span, Level};
@@ -355,7 +357,7 @@ For the sake of learning we will disable the default plugin and use Tracing itse
 This also means you can use Tracing on other applications using what you have learnt here.
 Tracing uses a subscriber made up of layers I don't really understand the details
 
-```
+```rust
 use bevy::{log::LogPlugin, prelude::*};
 use rand::prelude::*;
 use tracing::{instrument, span, Level};
@@ -375,7 +377,7 @@ fn main() {
 
 Lets modify Tracing
 
-```   
+```rust   
 tracing_subscriber::fmt()
   .without_time()
   .with_file(true)
