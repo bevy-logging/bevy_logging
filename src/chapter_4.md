@@ -241,13 +241,13 @@ The output is
 
 ```
 
-Great we can put a message there but its not really a warning we can move it to the info level.
+Great we can put a message there, but its not really a warning we can move it to the info level.
 
-We use Tracings `info!` macro
+We use Tracing's `info!` macro
 
 ```info!("Hello Log")```
 
-now lets run
+Now lets run
 
 ```
 
@@ -261,9 +261,10 @@ now lets run
 ```
 
 Perhaps unsurprisingly The message did not appear as it is higher level then warning. 
-Therefore our settings have declared this too verbose
+Therefore our settings have declared this too verbose.
 
 ### Higher level logging for our application
+
 
 First lets add the depenencies
 
@@ -279,7 +280,7 @@ The syntax introduced will be to change targets
 
 I called my example crate test_spiral
 
-so it will `test_spiral` there is no module name.
+So the target we supply to the env filter will be `test_spiral` there is no module name, therfore it is left blank.
 
 Env filters are comma seperated so `warn,test_spiral=info` will mean "run `warn` level for as normal, for module test_spiral `info`"
 
@@ -297,7 +298,7 @@ fn main() {
         .run();
 }
 ```
-lets run
+Lets run
 
 ```
      Running `target/debug/test_spiral`
@@ -441,7 +442,7 @@ also note that the crate module path was printed `test_spiral::spammy` this will
 Clearly we have a problem with spammy, we could just delete the spammy logs like we would have to do with techniques in the previous chapter.
 However for the sake of the excercies lets pretend that we sometimes is useful
 
-lets put in a log code so we cannot just change the applications logging levels
+Lets put in a log code so we cannot just change the applications logging levels
 
 ```rust
 fn setup(
@@ -454,7 +455,7 @@ fn setup(
 ```
 How do we just hide spammy's messages?
 
-we do it like so, using the path that was printed `test_spiral::spammy`
+We do it like so, using the path that was printed `test_spiral::spammy`
 ```rust
 filter: "warn,test_spiral=trace,test_spiral::spammy=info".to_string(),
 
