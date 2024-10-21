@@ -11,7 +11,7 @@ lets start with an example
 
 based on our code [here.](https://github.com/bevy-logging/test_spiral)
 
-```
+```rust
 
 use std::str::FromStr;
 
@@ -127,7 +127,7 @@ Encountered a panic in system `bevy_app::main_schedule::Main::run_main`!
 A crash its good we got the issue pointed out to us straight away but we could change
 the query_light function to be as below.
 
-```
+```rust
 fn query_light(light_query: Query<&PointLight>) {
     let light = light_query.get_single() else {
         error!("no light found");
