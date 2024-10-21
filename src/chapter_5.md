@@ -18,7 +18,7 @@ So far we have learned about logging levels and filtering by module our next goa
 
 ### instrument
 
-instrument adds more context to your functions
+`instrument` adds more context to your functions
 
 ```rust
 
@@ -116,7 +116,7 @@ mod spammy {
 }
 ```
 
-Of particular note is instrument
+Of particular note is `instrument`
 
 ```rust
 #[instrument]
@@ -139,14 +139,14 @@ Lets run
 2024-10-19T22:42:48.169411Z DEBUG test_spiral: Don't hide me
 2024-10-19T22:42:48.169448Z  INFO some_function{i=3}: test_spiral::spammy: Fizz
 ```
-Notice that some_function is now printing along with its argument some more context
+Notice that `some_function` is now printing along with its argument some more context.
 
-we can skip the arguments using skip_all which can be useful if some arguments don't have debug
+We can skip the arguments using skip_all which can be useful if some arguments don't have debug.
 
 `#[instrument(skip_all)]`
 
-I tend to use skip_all for all my systems as queries can be quite spammy
-If I am a system to query all transforms
+I tend to use skip_all for all my systems as queries can be quite spammy.
+If create a system to query all transforms
 
 `.add_systems(Update, some_queries.run_if(run_once()))`
 
@@ -156,7 +156,7 @@ fn some_queries(transformers: Query<&Transform>) {
     info!("not actually going to run");
 }
 ```
-The output gets quite verbose per query
+The output gets quite verbose per query.
 
 ```
      Running `target/debug/test_spiral`
@@ -179,6 +179,21 @@ Note I added the line breaks to fit the margins
 
 So lets add skip all
 `#[instrument(skip_all)]`
+
+The output
+```
+     Running `target/debug/test_spiral`
+2024-10-21T08:12:11.871245Z  WARN wgpu_hal::vulkan::instance: InstanceFlags::VALIDATION requested, but unable to find layer: VK_LAYER_KHRONOS_validation    
+2024-10-21T08:12:11.880725Z  WARN wgpu_hal::vulkan::instance: GENERAL [Loader Message (0x0)]
+        terminator_CreateInstance: Failed to CreateInstance in ICD 4.  Skipping ICD.    
+2024-10-21T08:12:11.880740Z  WARN wgpu_hal::vulkan::instance:   objects: (type: INSTANCE, hndl: 0x56a5fc78b4c0, name: ?)    
+2024-10-21T08:12:11.887924Z  WARN wgpu_hal::gles::egl: No config found!    
+2024-10-21T08:12:11.887939Z  WARN wgpu_hal::gles::egl: EGL says it can present to the window but not natively    
+2024-10-21T08:12:12.345086Z  INFO test_spiral: Hello Log
+2024-10-21T08:12:12.345107Z DEBUG test_spiral: Don't hide me
+2024-10-21T08:12:12.345155Z  INFO some_function{i=3}: test_spiral::spammy: Fizz
+2024-10-21T08:12:13.653510Z  INFO some_queries: test_spiral: not actually going to run
+```
 
 ### Spans 
 
@@ -404,9 +419,9 @@ tracing_subscriber::fmt()
   .init();
 
  ```
-I find time spammy with diff files
-I mentioned that `dbg!` had line numbers and file names.
-Pretty is useful for console remove if you are redirecting to a txt file
+I find timestamp is spammy with diff files so thats why `without_time` is there.
+I mentioned that `dbg!` had line numbers and file names, `with_file(true)`,`with_line_numbers(true)``.
+Pretty is useful for console, remove if you are redirecting to a txt file
 
 Now lets run
 
@@ -493,5 +508,5 @@ Now lets run
     in test_spiral::some_queries
 ```
 
-Line numbers and file names. You may be happy to just work from this point.
-Next chapters is basically breaking Tracing up into layers
+Line numbers and file names. You may be happy to just work on your game from this point.
+Next chapters is basically breaking Tracing up into layers so you can have multiple specialiesd files
