@@ -23,7 +23,7 @@ however I have found this is not as much the case with Bevy.
 While Rust's compile-time checks catch many errors, Bevy's ECS can introduce runtime issues:
 
 - Queries breaking due to component changes
-- Systems running in unexpected orders
+- Systems running in an unexpected orders
 
 Advanced logging and tracing help catch these issues earlier and provide more context for debugging. 
 
@@ -37,3 +37,4 @@ The documentation around Tracing is overwhelming for me and talks a lot about as
 This book will not talk about debugging tools beyond logging.
 
 Please note this document is not an official document of bevy's
+Referenced code can be found [here](https://github.com/bevy-logging/test_spiral)
