@@ -33,7 +33,7 @@ let stdout_layer = tracing_subscriber::fmt::layer()
 Layers do the presentation and filtering of data, in the example above this sends data to the standard output.
 
 ```rust
-let log_file = File::create("logs/yearly.log").unwrap();
+let log_file = File::create("logs/start.log").unwrap();
 let start_layer = tracing_subscriber::fmt::layer()
     .with_line_number(true)
     .with_file(true)
@@ -48,7 +48,7 @@ This above layer will send the file to a file by output log based on all spans t
 we can add them as below, just above your main application,
 
 ```rust
-//layers code above
+//code for layers above
 tracing_subscriber::registry()
     .with(stdout_layer)
     .with(start_layer)

@@ -37,4 +37,6 @@ The documentation around Tracing is overwhelming for me and talks a lot about as
 This book will not talk about debugging tools beyond logging.
 
 Please note this document is not an official document of bevy's
+
 Referenced code can be found [here](https://github.com/bevy-logging/test_spiral)
+Or you could follow along on your own project.

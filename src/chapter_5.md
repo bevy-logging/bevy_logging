@@ -420,7 +420,7 @@ tracing_subscriber::fmt()
 
  ```
 I find timestamp is spammy with diff files so thats why `without_time` is there.
-I mentioned that `dbg!` had line numbers and file names, `with_file(true)`,`with_line_numbers(true)``.
+I mentioned that `dbg!` had line numbers and file names, `with_file(true)`,`with_line_numbers(true)`.
 Pretty is useful for console, remove if you are redirecting to a txt file
 
 Now lets run
