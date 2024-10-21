@@ -9,6 +9,7 @@
 - [Introduction to Tracing](./chapter_5.md)
 - [Tracing Multiple outputs](./chapter_6.md)
 - [Putting Layers into default plugin](./chapter_7.md)
+- [Other features I have thought of using](./future.md)
 - [Further Info](./chapter_8.md)
 - [Design patterns](./patterns.md)
 - [Contributing](./contributing.md)

@@ -210,7 +210,7 @@ A major use case is having release and debug modes with different log levels.
 
 ### Adding our own logging
 Ok so lets add in our own startup warning message, warning because only they and errors will show.
-We can print a warn message using Tracings  supplied macro!s
+We can print a warn message using Tracings supplied macros
 
 
 ```rust
