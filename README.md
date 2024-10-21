@@ -7,7 +7,7 @@ broader Rust Community as well as the Bevy community.
 
 
 ### Structure
-As I have spent more time working with Rust, I have moved from using println! to using the tracing crate
+As I have spent more time working with Rust, I have moved from using `println!` to using the tracing crate
 for logging.
 My Objectives are to
 - Describe the transition from basic methods to more advanced tools.
@@ -23,7 +23,7 @@ however I have found this is not as much the case with Bevy.
 While Rust's compile-time checks catch many errors, Bevy's ECS can introduce runtime issues:
 
 - Queries breaking due to component changes
-- Systems running in unexpected orders
+- Systems running in an unexpected order
 
 Advanced logging and tracing help catch these issues earlier and provide more context for debugging. 
 
