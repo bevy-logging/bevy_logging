@@ -142,11 +142,12 @@ Tracing (Which the default Logplugin uses for most Operating Systems) has the be
 - Warn
 - Error
 
-Its up to you exactly what these mean exactly but here is how I use them in Bevy.
+Its up to you what these mean exactly but here is how I use them in Bevy.
 
 - Trace: details inside a loop
 - Debug start or end of loops
-- Info usually what I am working on currently I then set to either debug or trace
+- Info usually what I am working on currently I then set to either debug or trace. I also use this for information
+I want to display but haven't built the UI for yet
 - Warn: I never use
 - Error: let else fail when I don't expect it to
 
