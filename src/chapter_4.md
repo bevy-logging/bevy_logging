@@ -167,7 +167,6 @@ assert!(Level::INFO <= Level::DEBUG);
 assert_eq!(Level::TRACE, Level::TRACE);
 ```
 
-That is all for levels
 
 ## Env Filter
 
@@ -246,10 +245,8 @@ Great we can put a message there but its not really a warning we can move it to 
 
 We use Tracings `info!` macro
 
-```rust
-    info!("Hello Log");
+```info!("Hello Log")```
 
-```
 now lets run
 
 ```
