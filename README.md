@@ -1,5 +1,7 @@
 # Introduction
 
+[Book website is here](https://bevy-logging.github.io/)
+
 ### About
 I have recently been making a game using the bevy engine.
 Along the way I have been helped by community with many issues I have encountered both within the 
