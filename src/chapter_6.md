@@ -21,13 +21,15 @@ lets read the documentation
 
 I will just start with an example.
 
+
 ```rust
 let stdout_layer = tracing_subscriber::fmt::layer()
     .with_line_number(true)
     .with_file(true)
     .without_time()
     .pretty()
-    .with_filter(EnvFilter::from_str("warn").unwrap());
+    /* Put less important stuff info files */
+    .with_filter(EnvFilter::from_str("warn,test_spiral=info").unwrap());
 ```
 
 Layers do the presentation and filtering of data, in the example above this sends data to the standard output.
