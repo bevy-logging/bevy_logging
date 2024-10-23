@@ -42,7 +42,7 @@ let start_layer = tracing_subscriber::fmt::layer()
     .without_time()
     .with_ansi(false)
     .with_writer(Mutex::new(log_file))
-    .with_filter(EnvFilter::from_str("none,test_spiral::[start]").unwrap());
+    .with_filter(EnvFilter::from_str("none,test_spiral::[start]=trace").unwrap());
 ```
 
 This above layer will send the file to a file by output log based on all spans that have start
