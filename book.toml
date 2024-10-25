@@ -7,3 +7,6 @@ title = "Logging with Bevy"
 
 [rust]
 edition = "2018"
+
+[output.html.playground]
+runnable = false
