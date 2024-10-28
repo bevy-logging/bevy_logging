@@ -6,15 +6,15 @@
 
 Tracing is made for and often talked about in regards to asynchronous code, which is where a lot of documentation and discussion is addresses.
 
-However you don't need to use async code to benefit from this crate, I expect I will use this crate for every non-trival program I write in rust!
+However, you don't need to use async code to benefit from this crate. I expect I will use this crate for every non-trivial program I write in Rust!
 
 ## Why use Tracing
 - Instead of deleting logs that you are not actively using, you can stop sending those logs until they are needed.
 - You can log to multiple files by category
 
-## Next Steps from what we have learnt
+## Next Steps from what we have learned
 
-So far we have learned about logging levels and filtering by module our next goal is to learn how to add more context to our logs.
+So far, we have learned about logging levels and filtering by module. Our next goal is to learn how to add more context to our logs.
 
 ### instrument
 
@@ -126,7 +126,7 @@ Of particular note is `instrument`
         }
     }
 ```
-Lets run
+Let's run
 ```
      Running `target/debug/test_spiral`
 2024-10-19T22:42:47.680435Z  WARN wgpu_hal::vulkan::instance: InstanceFlags::VALIDATION requested, but unable to find layer: VK_LAYER_KHRONOS_validation    
@@ -141,12 +141,12 @@ Lets run
 ```
 Notice that `some_function` is now printing along with its argument some more context.
 
-We can skip the arguments using skip_all which can be useful if some arguments don't have debug.
+We can skip the arguments using `skip_all`, which can be useful if some arguments don't implement `Debug`.
 
 `#[instrument(skip_all)]`
 
-I tend to use skip_all for all my systems as queries can be quite spammy.
-If create a system to query all transforms
+I tend to use `skip_all` for all my systems as queries can be quite spammy.
+If I, for example, create a system to query all transforms
 
 `.add_systems(Update, some_queries.run_if(run_once()))`
 
@@ -177,7 +177,7 @@ test_spiral: not actually going to run
 ```
 Note I added the line breaks to fit the margins
 
-So lets add skip all
+So let's add `skip_all`  
 `#[instrument(skip_all)]`
 
 The output
@@ -196,10 +196,10 @@ The output
 ```
 
 
-If you recall an earlier section of the book say equate targets with modules *for now* 
+If you recall, an earlier section of the book says to equate targets with modules *for now*.
 
-You can change that using arguments to instruments, this will not be demonstrated however,
-As I have never had a need for it yet.
+You can change that using arguments to instruments. This will not be demonstrated, however,
+as I have never had a need for it yet.
 
 More about instruments [here](https://docs.rs/tracing/latest/tracing/attr.instrument.html)
 
@@ -219,8 +219,8 @@ The examples for me are
 
 You can use as many spans as you want.
 
-Now lets look at the syntax to use a span inside a fuction
-you need code that looks like this
+Now lets look at the syntax to use a span inside a fuction.
+You need code that looks like this
 
 ```rust
 let span = span!(Level::DEBUG, "start");
@@ -233,20 +233,20 @@ Note `_guard` is there to stop the variable being dropped immediately.
 The underscore is to stop unused errors as its drop behaviour is what really makes it work!
 
 While `_guard` is valid(undropped) the span is entered.
-while span is valid the span is created
+While `span` is valid the span is created.
 
-There is shorthands for all logging levels such as `trace_span!`
+There are shorthands for all logging levels, such as `trace_span!`
 
 You cannot combine the `span(/* snip*/).enter`  into one line as *entering* a span and *creating*
-are distinct things, A span is only *created* once while a span can be *entered* many times.
+are distinct things. A span is only *created* once while a span can be *entered* many times.
 
 Entering and exiting spans is ~stuff I don't have much idea about~ beyond the scope this tutorial(mostly async stuff).
 
 Spans *exit* when the variable holding the enter is dropped in this example the `_guard`
-Spans *Close* when the span variable is dropped.
+spans *close* when the span variable is dropped.
 
 
-we can use square brackets to filter by span 
+We can use square brackets to filter by span 
 
 ```filter: "warn,test_spiral=trace,test_spiral::spammy=info,test_spiral[start]=trace"```
 
@@ -395,9 +395,9 @@ The output
 
 ## Using Tracing on its own
 
-For the sake of learning we will disable the default plugin and use Tracing itself.
-This also means you can use Tracing on other applications using what you have learnt here.
-Tracing uses a subscriber made up of layers I don't really understand the details
+For the sake of learning we will disable the default plugin and use the `tracing` crate itself.
+This also means you can use what you learned here on other applications using `tracing`.
+Tracing uses a subscriber made up of layers (I don't really understand the details)
 
 ```rust
 use bevy::{log::LogPlugin, prelude::*};
@@ -417,7 +417,7 @@ fn main() {
 }
 ```
 
-Lets modify Tracing
+Let's modify Tracing
 
 ```rust   
 tracing_subscriber::fmt()
@@ -440,7 +440,7 @@ tracing_subscriber::fmt()
 
 - Pretty is useful for console, remove if you are redirecting to a txt file
 
-Now lets run
+Now, let's run
 
 
 ```
@@ -526,4 +526,4 @@ Now lets run
 ```
 
 Line numbers and file names. You may be happy to just work on your game from this point.
-Next chapters is basically breaking Tracing up into layers so you can have multiple specialiesd files
+Next chapters is basically breaking Tracing up into layers so you can have multiple specialized files.

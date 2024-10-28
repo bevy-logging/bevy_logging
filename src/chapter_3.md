@@ -11,10 +11,10 @@ assert_eq!(b, 5);
 ```
 
 Notice that the file path and line numbers are printed.
-This metadata is generated at compile time so will keep up with changes made in your program.
+This metadata is generated at compile time, so it will keep up with changes made in your program.
 
-This means it less essential to make your `dbg` statements unique.
+This means it is less essential to make your `dbg` statements unique.
 
-However there are still some disadvantages (same as `println!`)
+However, there are still some disadvantages (same as `println!`)
 - Typing or more likely copying and pasting `dbg!`'s everywhere gets quite tedious
 - At some point these `dbg!`'s need to removed or they will block up the logging
