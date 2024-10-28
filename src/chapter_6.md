@@ -1,14 +1,14 @@
 # Tracing multiple files
 
-Using our powers of span we can "Tag" our logs to go to seperate files per span, first we need to learn about layers.
+Using our powers of span, we can "Tag" our logs to go to separate files per span. First, we need to learn about layers.
 
 
 ## Subscribers
-Subscribers carry many layers, I am not entirely sure about the definition of a subscriber but I believe its basically
-a consumer of tracing logs that decides how to output it. I have only used the one on the tracing crate but their are other
-variations such as tree logging.
+Subscribers carry many layers. I am not entirely sure about the definition of a subscriber, but I believe it's basically
+a consumer of tracing logs that decides how to output them. I have only used the one on the tracing crate,
+but there are other variations, such as tree logging.
 
-lets read the documentation
+Let's read the documentation
 "A subscriber is responsible for the following:
 
     Registering new spans as they are created, and providing them with span IDs. Implicitly, this means the subscriber may determine the strategy for determining span equality.

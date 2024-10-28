@@ -2,7 +2,7 @@
 
 One of Bevy's default plugins is the log plugin.
 
-Lets configure the plugin then explain as we see what happens
+Let's configure the plugin, then explain as we see what happens
 
 
 ```rust
@@ -17,9 +17,8 @@ fn main() {
         .run();
 }
 
-
+// The rest of the code...
 ```
-The rest of the code of an example application.
 
 Code can also be found [here.](https://github.com/bevy-logging/test_spiral)
 
@@ -127,14 +126,14 @@ Run the code and see what happens.
 
 ```
 
-The console is absolutly flooded with debug messages from the bevy engine itself along with its dependencies.
-Libraries use a similar logging scheme to what is about to be shown below the idea is that you can filter out the irrelevant logs.
-In order to start filtering we need to learn about levels and the Env filter.
+The console is absolutely flooded with debug messages from the Bevy engine itself, along with its dependencies.
+Libraries use a similar logging scheme to what is about to be shown below. The idea is that you can filter out the irrelevant logs.
+In order to start filtering, we need to learn about levels and the Env filter.
 
 ## Log Levels 
 
 
-Tracing (Which the default Log plugin used for most Bevy Supported platforms with the major exceptions of the web and mobile) has the below log levels from highest (most detailed) to lowest (most important)
+Tracing (The default Log plugin used for most Bevy Supported platforms with the major exceptions of the web and mobile) has the below log levels from highest (most detailed) to lowest (most important)
 
 - `Trace` (Not printed by default)
 - `Debug` (Not printed by default)
@@ -143,18 +142,18 @@ Tracing (Which the default Log plugin used for most Bevy Supported platforms wit
 - `Error`
 - `None` (you turned off logging)
 
-Its up to you what these mean exactly but here is how I use them in Bevy.
+It's up to you what these mean exactly, but here is how I use them in Bevy.
 
 - `Trace` details inside a loop
 - `Debug` start or end of loops
-- `Info` usually what I am working on currently I then set to either debug or trace. I also use this for information
+- `Info` usually what I am working on currently, I then set it to either debug or trace. I also use this for information
 I want to display but haven't built the UI for yet
 - `Warn` I never use
 - `Error` let else fail when I don't expect it to
 
-Lower levels are more important, higher levels (by convention not enforcement!) are more verbose.
+Lower levels are more important, while higher levels (by convention, not enforcement!) are more verbose.
 
-For example at the default level `Info` the levels below `Warn` and `Error` will also print.
+For example, at the default level `Info` the levels below `Warn` and `Error` will also print.
 
 Extract from the Tracing library
 
@@ -176,7 +175,7 @@ Spans will be discussed later.
 
 I have not needed fields, until I use them or someone else supplies an example fields are an excercise for the reader.
 
-To start with lets put a global env filter set all to warn, this can give you useful messages such as a uinode without an appopriate parent node
+To start with let's put a global env filter set all to warn, this can give you useful messages such as a UI-node without an appropriate parent node
 
 
 ```rust
@@ -205,12 +204,12 @@ The output in full is
 ```
 
 ### The level field
-The level field in the log plugin is a quick way to globally set all logs.
+The level field in the log plugin is a quick way to set all logs globally.
 A major use case is having release and debug modes with different log levels.
 
 ### Adding our own logging
-Ok so lets add in our own startup warning message, warning because only they and errors will show.
-We can print a warn message using Tracings supplied macros
+Ok, so let's add in our own startup warning message, warning because only they and errors will show.
+We can print a `Warn` message using Tracing's supplied macros
 
 
 ```rust
@@ -241,13 +240,13 @@ The output is
 
 ```
 
-Great we can put a message there, but its not really a warning we can move it to the info level.
+Great. We can put a message there, but it's not really a warning, so we can move it to the info level.
 
 We use Tracing's `info!` macro
 
 ```info!("Hello Log")```
 
-Now lets run
+Now let's run
 
 ```
 
@@ -260,19 +259,19 @@ Now lets run
 2024-10-19T22:08:28.518049Z  WARN wgpu_hal::gles::egl: EGL says it can present to the window but not natively  
 ```
 
-Perhaps unsurprisingly The message did not appear as it is higher level then warning. 
-Therefore our settings have declared this too verbose.
+Perhaps unsurprisingly, The message did not appear as it is at a higher level than `warning`.
+Therefore, our settings have declared this to be too verbose.
 
 ### Higher level logging for our application
 
 
-First lets add the depenencies
+First, let's add the depenencies
 
 `cargo add tracing`
 
 `cargo add tracing-subscriber`
 
-In order to show our applications logging we need to change the env filter to show our applications at `info` level or above.
+In order to show our applications logging, we need to change the env filter to show our applications at the `info` level or above.
 
 The syntax introduced will be to change targets
 
@@ -280,9 +279,9 @@ The syntax introduced will be to change targets
 
 I called my example crate test_spiral
 
-So the target we supply to the env filter will be `test_spiral` there is no module name, therfore it is left blank.
+So, the target we supply to the env filter will be `test_spiral`. Since there is no module name, it is left blank.
 
-Env filters are comma seperated so `warn,test_spiral=info` will mean "run `warn` level for as normal, for module test_spiral `info`"
+Env filters are comma separated so `warn,test_spiral=info` will mean "run `warn` level for as normal, for module test_spiral `info`"
 
 
 ```rust
@@ -298,7 +297,7 @@ fn main() {
         .run();
 }
 ```
-Lets run
+Let's run
 
 ```
      Running `target/debug/test_spiral`
@@ -316,7 +315,7 @@ Excellent
 ### Module
 
 
-We are going to make a second module we will keep it in the same file for simplicity but it will work for seperate files
+We are going to make a second module we will keep it in the same file for simplicity but it will work for separate files
 
 ```rust
 use bevy::{log::LogPlugin, prelude::*};
@@ -404,8 +403,9 @@ mod spammy {
     }
 }
 ```
-`?i` just means use debug of that variable to print, otherwise you can use the macros same way as `println!`
-lets first change the log level for our application to be at `trace`
+`?i` just means use debug of that variable to print. Otherwise you can use the macros the same way as `println!`
+
+Let's first change the log level for our application to be at `trace`
 
 ```rust
 filter: "warn,test_spiral=trace".to_string(),
@@ -434,15 +434,15 @@ now run
 2024-10-19T22:24:06.016247Z TRACE test_spiral::spammy: i=8
 2024-10-19T22:24:06.016251Z TRACE test_spiral::spammy: i=9
 ```
-In this case you can see the print_trash module ran before my setup code.
-also note that the crate module path was printed `test_spiral::spammy` this will soon be relevant
+In this case, you can see that the `print_trash` module ran before my setup code.
+Also note that the crate module path was printed `test_spiral::spammy`. This will soon be relevant
 
 #### Filter out by module
 
-Clearly we have a problem with spammy, we could just delete the spammy logs like we would have to do with techniques in the previous chapter.
-However for the sake of the excercies lets pretend that we sometimes is useful
+Clearly we have a problem with spammy. We could just delete the spammy logs like we would have to do with techniques in the previous chapter.
+However, for the sake of the excercie, let's pretend that we sometimes is useful.
 
-Lets put in a log code so we cannot just change the applications logging levels
+Let's put in a log code so we cannot just change the application's logging levels
 
 ```rust
 fn setup(
@@ -473,8 +473,8 @@ filter: "warn,test_spiral=trace,test_spiral::spammy=info".to_string(),
 2024-10-19T22:32:17.218988Z DEBUG test_spiral: Don't hide me
 ```
 
-If a log does not appear that I think should, I usually just put in at `error` and copy the path.
+If a log does not appear as I think it should, I usually just put it as an `error` and copy the path.
 
 We can now selectively hide messages when we need to! This exciting idea is what lead me to learning more about the tracing crate.
 
-But what about showing line numbers and extra details, this will be covered in the next chapter
+But what about showing line numbers and extra details? This will be covered in the next chapter.
