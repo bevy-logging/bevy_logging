@@ -11,7 +11,7 @@ I don't know what bunyan formatter is just someone thought it was mentioning, wh
 ## Gizmo Subscriber
 
 Use to draw gizmos quickly, I have not yet used but I am likely to in future.
-I am intereseted in using Gizmos for debugging if I ever get to them, I will write about them.
+I am interested in using Gizmos for debugging if I ever get to them, I will write about them.
 
 My understanding of Gizmo's is
 
