@@ -12,4 +12,6 @@
 - [Other features I have thought of using](./future.md)
 - [Further Info](./chapter_8.md)
 - [Design patterns](./patterns.md)
+- [Other Subscribers](./subscribers.md)
+- [Performance](./performance.md)
 - [Contributing](./contributing.md)

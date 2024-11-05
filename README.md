@@ -41,3 +41,12 @@ This book will not talk about debugging tools beyond logging.
 Please note this document is not an official document of bevy's
 
 Referenced code can be found [here](https://github.com/bevy-logging/test_spiral)
+
+
+
+
+### Completion state
+
+This book is in a state of generally good enough for my game development.
+I prefer to stay on track with my game rather then add to this book, 
+therefore unless others contribute, updates will appear as they are useful to me. 
