@@ -17,6 +17,8 @@ My understanding of Gizmo's is
 
 They are graphics drawn in immediate mode as opposed to retained;
 
-Therefore they are not fast or pretty but can be use for marking places such as where your lights are, or testing rotations.
+Therefore they are not fast but can be use for marking places such as where your lights are, or testing rotations.
+
+(Plans are for 0.16 to change this to retained, this is written just before 0.15)
 
 [Gizmo subscriber](https://docs.rs/crate/bevy_gizmo_log/latest)
