@@ -5,7 +5,7 @@ Note I haven't needed to use multiple subscribers, so far I just change globabl 
 
 ## Bunyan Subscriber
 
-I don't know what bunyan formatter is just someone thought it was mentioning, who am I to disagree?
+I don't know what bunyan the format is, just someone[^note] thought it was worth mentioning, who am I to disagree?
 [bunyan](https://crates.io/crates/tracing-bunyan-formatter)
 
 ## Gizmo Subscriber
@@ -22,3 +22,5 @@ Therefore they are not fast but can be use for marking places such as where your
 (Plans are for 0.16 to change this to retained, this is written just before 0.15)
 
 [Gizmo subscriber](https://docs.rs/crate/bevy_gizmo_log/latest)
+
+[^note]: Discord user ThierryBerger
